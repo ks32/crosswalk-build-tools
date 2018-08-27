@@ -6,9 +6,7 @@ RUN apt-get update
 RUN apt-get install -y openssh-server git
 RUN mkdir /var/run/sshd
 
-RUN mkdir /src
-RUN cd /src
-RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
 RUN export PATH=$PATH:/src/depot_tools
 RUN git config --global user.name "Asif Hisam" && \
     git config --global user.email "asif@email.com" && \
