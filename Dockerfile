@@ -6,7 +6,18 @@ RUN apt-get update
 RUN apt-get install -y openssh-server git
 RUN mkdir /var/run/sshd
 
-RUN echo 'root:root' |chpasswd
+RUN mkdir /src && \
+    cd /src
+RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+RUN export PATH=$PATH:/src/depot_tools
+RUN git config --global user.name "Asif Hisam" && \
+    git config --global user.email "asif@email.com" && \
+    git config --global core.autocrlf false && \
+    git config --global core.filemode false && \
+    git config --global color.ui true
+
+
+RUN echo 'root:Mrroot12345' |chpasswd
 
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
