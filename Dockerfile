@@ -3,7 +3,10 @@ MAINTAINER Asif Hisam "https://github.com/ks32"
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server git
+RUN apt-get install -y openssh-server git vim software-properties-common
+RUN sudo add-apt-repository ppa:openjdk-r/ppa -y
+RUN sudo apt-get update
+RUN sudo apt-get install openjdk-8-jdk -y
 RUN mkdir /var/run/sshd
 
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
