@@ -28,6 +28,8 @@ RUN mkdir /root/.ssh
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+ADD set /root/set
 
 EXPOSE 22
 
