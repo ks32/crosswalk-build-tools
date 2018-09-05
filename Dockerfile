@@ -1,6 +1,8 @@
 FROM       ubuntu:14.04
 MAINTAINER Asif Hisam "https://github.com/ks32"
 
+VOLUME /checkout
+
 RUN apt-get update
 
 RUN apt-get install -y openssh-server git vim software-properties-common
