@@ -1,18 +1,13 @@
-FROM       ubuntu:14.04
+FROM       ubuntu:16.04
 MAINTAINER Asif Hisam "https://github.com/ks32"
-
-VOLUME /checkout
 
 RUN apt-get update
 
 RUN apt-get install -y openssh-server git vim software-properties-common screen
-RUN sudo add-apt-repository ppa:openjdk-r/ppa -y
-RUN sudo apt-get update
-RUN sudo apt-get install openjdk-8-jdk -y
 RUN mkdir /var/run/sshd
 
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
-#RUN export PATH=$PATH:/src/depot_tools
+
 ENV PATH "$PATH:/src/depot_tools"
 RUN git config --global user.name "Asif Hisam" && \
     git config --global user.email "asif@email.com" && \
