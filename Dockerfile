@@ -3,7 +3,7 @@ MAINTAINER Asif Hisam "https://github.com/ks32"
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server git vim software-properties-common python screen
+RUN apt-get install -y openssh-server git vim software-properties-common python screen sudo
 RUN mkdir /var/run/sshd
 
 RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
