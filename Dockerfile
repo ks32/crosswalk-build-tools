@@ -9,8 +9,7 @@ RUN mkdir /var/run/sshd
 # RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
 # copy old depot_toos instead of latest
 ADD depot_tools.tgz /src/depot_tools.tgz
-RUN cd /src
-RUN tar xvfz depot_tools.tgz 
+RUN tar xvfz /src/depot_tools.tgz 
 
 ENV PATH "$PATH:/src/depot_tools"
 ENV DEPOT_TOOLS_UPDATE "0"
