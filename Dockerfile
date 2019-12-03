@@ -8,7 +8,7 @@ RUN mkdir /var/run/sshd
 
 # RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /src/depot_tools
 # copy old depot_toos instead of latest
-ADD depot_tools.tar.gz /src/depot_tools.tar.gz
+ADD depot_tools.tgz /src/depot_tools.tgz
 RUN cd /src
 RUN tar xvfz depot_tools.tgz 
 
